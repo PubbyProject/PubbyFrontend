@@ -1,9 +1,9 @@
 import apiBase from "../api/ApiBase"
 
-export default {
-    name: "EventWrapper",
-
-    getAllEvents() {
-        return apiBase.get('/events');
+const EventWrapper = {
+    async getAllEvents() {
+        return await apiBase.get('/events');
     }
 }
+
+export default EventWrapper;

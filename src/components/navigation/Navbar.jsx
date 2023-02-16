@@ -10,9 +10,9 @@ function NavigationBar() {
             <Container>
                 <Navbar.Brand href='#'>Pubby</Navbar.Brand>
                 <Nav className='me-auto'>
-                    <Nav.Link href='#home'>Home</Nav.Link>
+                    <Nav.Link href='/'>Home</Nav.Link>
                     <Nav.Link href='#organizers'>Organizers</Nav.Link>
-                    <Nav.Link href='#events'>Events</Nav.Link>
+                    <Nav.Link href='/events'>Events</Nav.Link>
                 </Nav>
             </Container>
         </Navbar>
