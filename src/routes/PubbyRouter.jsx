@@ -1,15 +1,17 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import AllEvents from '../views/events/AllEventsView';
+import AllEventsView from '../views/events/AllEventsView';
+
 export default function Router() {
     return (
         <BrowserRouter>
         <Routes>
             <Route
             path='/events'
-            element={<AllEvents/>}
+            element={<AllEventsView/>}
             />
             <Route
-            path='/'/>
+            path='/'
+            element={HomeView}/>
         </Routes>
         </BrowserRouter>
     );
