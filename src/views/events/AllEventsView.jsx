@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import EventCard from "../../components/events/EventCard";
 import EventWrapper from "../../services/wrappers/EventWrapper";
 
-export default function AllEvents() {
+export default function AllEventsView() {
     const [events, setEvents] = useState([]);
 
     async function fetchData() {
