@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import AllEventsView from '../views/events/AllEventsView';
+import HomeView from '../views/home/HomeView';
 
 export default function Router() {
     return (
