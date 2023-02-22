@@ -2,17 +2,20 @@ import { useEffect, useState } from "react";
 import EventCard from "../../components/events/EventCard";
 import EventWrapper from "../../services/wrappers/EventWrapper";
 
-export default function AllEventsView() {
+export function AllEventsView(props) {
     const [events, setEvents] = useState([]);
 
     async function fetchData() {
-        await EventWrapper.getAllEvents()
+        const res = await EventWrapper.getAllEvents()
         .then(response => {
-            setEvents(response.data);
+            console.log(response.data.body)
+            setEvents(JSON.stringify(response.data.body));
         })
         .catch(e => {
             console.log(e);
         });
+
+        console.log(res)
     }
 
     useEffect(() => {
@@ -22,10 +25,12 @@ export default function AllEventsView() {
     return (
         <div>
             {events.map(event => {
+                return (
                 <EventCard id={event.id} 
-                name={event.name} 
-                description={event.description}>
+                    name={event.name} 
+                    description={event.description}>
                 </EventCard>
+                );
             })}
         </div>
     );

@@ -1,8 +1,10 @@
 import './App.css';
-import NavigationBar from './components/navigation/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/esm/Container';
-import Router from './routes/PubbyRouter';
+import NavigationBar from './components/navigation/Navbar';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HomeView } from './views/home/HomeView';
+import { AllEventsView } from './views/events/AllEventsView';
 
 function App() {
   return (
@@ -10,7 +12,18 @@ function App() {
     <div className="App">
       <NavigationBar>
         <Container>
-          <Router/>
+        <BrowserRouter>
+        <Routes>
+            <Route
+            path='/events'
+            element={<AllEventsView/>}>
+            </Route>
+            <Route
+            path='/'
+            element={HomeView}>
+            </Route>
+        </Routes>
+        </BrowserRouter>
       </Container>
       </NavigationBar>
     </div>
