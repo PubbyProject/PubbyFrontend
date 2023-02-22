@@ -6,21 +6,21 @@ export default class EventCard extends React.Component {
     constructor(props) {
         super();
         this.state = {
-            id: this.props.id,
-            name: this.props.name,
-            description: this.props.description
+            eventId: props.eventId,
+            name: props.name,
+            description: props.description
         }
     };
 
     render() {
         return (
-            <Card style={{width: '18rem'}}>
+            <Card style={{width: '18rem'}} key={this.eventId}>
                 <Card.Body>
-                    <Card.Title>{this.name}</Card.Title>
+                    <Card.Title>{this.state.name}</Card.Title>
                     <Card.Text>
-                        {this.description}
+                        {this.state.description}
                     </Card.Text>
-                    <Button variant="primary" href={this.id}>More info</Button>
+                    <Button variant="primary" href={this.state.eventId}>More info</Button>
                 </Card.Body>
             </Card>
         );

@@ -11,16 +11,17 @@ export default class AllEventsView extends React.Component {
     };
 
     fetchData = async () => {
-        const res = await EventWrapper.getAllEvents()
+        await EventWrapper.getAllEvents()
         .then(response => {
             console.log(response.data.body)
             this.setState({events: response.data.body});
+            this.state.events.forEach(element => {
+                console.log(`Id: ${element.id}`)
+            });
         })
         .catch(e => {
             console.log(e);
         });
-
-        console.log(res)
     };
 
     async componentDidMount() {
@@ -32,10 +33,13 @@ export default class AllEventsView extends React.Component {
             <div>
                 {this.state.events.map(event => {
                     return (
-                    <EventCard id={event.id} 
-                        name={event.name} 
-                        description={event.description}>
+                        <div key={event.id}>
+                        <EventCard
+                            eventId={event.id} 
+                            name={event.name} 
+                            description={event.description}>
                     </EventCard>
+                    </div>
                     );
                 })}
             </div>

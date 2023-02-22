@@ -11,9 +11,9 @@ class NavigationBar extends React.Component {
             <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
                 <Navbar.Toggle aria-controls='navbarScroll' data-bs-target="#navbarScroll"/>
                 <Navbar.Collapse id="navbarScroll">
-                    <Nav>
-                        <NavLink eventKey="1" as={Link} to="/"><strong>Home</strong></NavLink>
-                        <NavLink eventKey="2" as={Link} to="/events"><strong>Events</strong></NavLink>
+                    <Nav className='me-auto'>
+                        <Navbar.Brand as={Link} to="/"><strong>Pubby</strong></Navbar.Brand>
+                        <NavLink as={Link} to="/events"><strong>Events</strong></NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
