@@ -1,26 +1,24 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
+import { Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { NavLink } from 'react-bootstrap';
 
 class NavigationBar extends React.Component {
     render() {
         return (
-            <>
-            <Navbar bg='dark' variant='dark'>
-                <Container>
-                    <Navbar.Brand href='/home'>Pubby</Navbar.Brand>
-                    <Nav className='me-auto'>
-                        <Nav.Link href='#organizers'>Organizers</Nav.Link>
-                        <Nav.Link href='/events'>Events</Nav.Link>
+            <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
+                <Navbar.Toggle aria-controls='navbarScroll' data-bs-target="#navbarScroll"/>
+                <Navbar.Collapse id="navbarScroll">
+                    <Nav>
+                        <NavLink eventKey="1" as={Link} to="/"><strong>Home</strong></NavLink>
+                        <NavLink eventKey="2" as={Link} to="/events"><strong>Events</strong></NavLink>
                     </Nav>
-                </Container>
+                </Navbar.Collapse>
             </Navbar>
-            </>
         );
     }
-
 }
 
 export default NavigationBar;

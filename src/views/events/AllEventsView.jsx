@@ -2,8 +2,8 @@ import React from "react";
 import EventCard from "../../components/events/EventCard";
 import EventWrapper from "../../services/wrappers/EventWrapper";
 
-export class AllEventsView extends React.Component {
-    constructor(props) {
+export default class AllEventsView extends React.Component {
+    constructor() {
         super();
         this.state = {
             events: []
