@@ -1,37 +1,44 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import EventCard from "../../components/events/EventCard";
 import EventWrapper from "../../services/wrappers/EventWrapper";
 
-export function AllEventsView(props) {
-    const [events, setEvents] = useState([]);
+export class AllEventsView extends React.Component {
+    constructor(props) {
+        super();
+        this.state = {
+            events: []
+        }
+    };
 
-    async function fetchData() {
+    fetchData = async () => {
         const res = await EventWrapper.getAllEvents()
         .then(response => {
             console.log(response.data.body)
-            setEvents(JSON.stringify(response.data.body));
+            this.setState({events: response.data.body});
         })
         .catch(e => {
             console.log(e);
         });
 
         console.log(res)
+    };
+
+    async componentDidMount() {
+        this.fetchData();
+    };
+
+    render() {
+        return (
+            <div>
+                {this.state.events.map(event => {
+                    return (
+                    <EventCard id={event.id} 
+                        name={event.name} 
+                        description={event.description}>
+                    </EventCard>
+                    );
+                })}
+            </div>
+        );
     }
-
-    useEffect(() => {
-        fetchData();
-    });
-
-    return (
-        <div>
-            {events.map(event => {
-                return (
-                <EventCard id={event.id} 
-                    name={event.name} 
-                    description={event.description}>
-                </EventCard>
-                );
-            })}
-        </div>
-    );
 }

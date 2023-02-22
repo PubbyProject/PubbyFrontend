@@ -1,12 +1,14 @@
-import { useEffect } from "react";
+import React from "react";
 
-export function HomeView(props) {
-    useEffect(() => {
-        console.log('hello world')
-    });
-    return (
-        <div className="home">
-            <p>This is a homepage</p>
-        </div>
-    );
+export class HomeView extends React.Component {
+    componentDidMount() {
+        console.log('foo')
+    }
+    render() {
+        return (
+            <div className="home">
+                <p>This is a homepage</p>
+            </div>
+        );
+    };
 }
