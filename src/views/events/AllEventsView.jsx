@@ -13,11 +13,7 @@ export default class AllEventsView extends React.Component {
     fetchData = async () => {
         await EventWrapper.getAllEvents()
         .then(response => {
-            console.log(response.data.body)
             this.setState({events: response.data.body});
-            this.state.events.forEach(element => {
-                console.log(`Id: ${element.id}`)
-            });
         })
         .catch(e => {
             console.log(e);
