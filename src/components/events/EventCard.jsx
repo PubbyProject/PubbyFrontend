@@ -14,7 +14,7 @@ export default class EventCard extends React.Component {
 
     render() {
         return (
-            <Card style={{width: '18rem'}} key={this.eventId}>
+            <Card style={{width: '18rem'}}>
                 <Card.Body>
                     <Card.Title>{this.state.name}</Card.Title>
                     <Card.Text>

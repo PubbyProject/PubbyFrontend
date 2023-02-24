@@ -29,13 +29,11 @@ export default class AllEventsView extends React.Component {
             <div>
                 {this.state.events.map(event => {
                     return (
-                        <div key={event.id}>
                         <EventCard
                             eventId={event.id} 
                             name={event.name} 
                             description={event.description}>
                     </EventCard>
-                    </div>
                     );
                 })}
             </div>
