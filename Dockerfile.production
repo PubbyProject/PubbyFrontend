@@ -5,8 +5,7 @@ FROM node:alpine
 WORKDIR /app
 
 # Copy dependency files inside of the directory
-COPY ./pubby-frontend/package.json ./
-COPY ./pubby-frontend/package-lock.json ./
+COPY ./pubby-frontend/package*.json ./
 
 # Install the dependencies
 RUN npm install
